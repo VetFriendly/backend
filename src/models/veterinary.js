@@ -15,21 +15,21 @@ const veterinarySchema = new mongoose.Schema({
         maxLength: 100,
         trim: true
     },
-    schedulTime: {
-        type: Array,
-        required: false,
-        minLength: 3,
-        maxLength: 100,
-        trim: true
-    },
-    schedulDay: {
-        type: Array,
-        required: false,
-        minLength: 3,
-        maxLength: 100,
-        trim: true
-    },
+    schedulTime: [
+        {
+            type: Number,
+            required: false,
+            trim: true
+        },
+    ],
+    schedulDay: [
+        {
+            type: Number,
+            required: false,
+            trim: true
+        },
+    ],
 })
 
 const veterinary = mongoose.model('veterinary', veterinarySchema)
-export {veterinary}
+export { veterinary }

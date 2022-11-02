@@ -11,7 +11,6 @@ const {
 } = process.env
 
 const URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}${DB_HOST}/${DB_NAME}?retryWrites=true&w=majority`
-console.log(URL)
 
 const connect = () => mongoose.connect(URL)
 

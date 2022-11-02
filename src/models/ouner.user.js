@@ -1,16 +1,16 @@
 import mongoose from "mongoose";
 
-const veterinaryUserSchema = new mongoose.Schema({
+const ounerUserSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        required: true,
+        required: false,
         minLength: 3,
         maxLength: 100,
         trim: true
     },
     lastName: {
         type: String,
-        required: true,
+        required: false,
         minLength: 3,
         maxLength: 100,
         trim: true
@@ -30,11 +30,6 @@ const veterinaryUserSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
     },
-    identification: {
-        required: true,
-        type: String,
-        trim: true
-    },
     imageProfile: {
         type: String,
         required: false,
@@ -44,21 +39,8 @@ const veterinaryUserSchema = new mongoose.Schema({
         type: Date,
         required: false
     },
-    nacionality: {
-        type: String,
-        required: true,
-        min: 1,
-        max: 100
-    },
-    biography: {
-        type: String,
-        required: false,
-        minLength: 3,
-        maxLength: 500,
-        trim: true
-    },
-    vet: { type: mongoose.Schema.Types.ObjectId, ref: 'veterinary' }
+    pets: [{ type: mongoose.Schema.Types.ObjectId, ref: 'pet' }]
 })
 
-const veterinaryUser = mongoose.model('veterinaryUser', veterinaryUserSchema)
-export {veterinaryUser}
+const ounerUser = mongoose.model('ounerUser', ounerUserSchema)
+export {ounerUser}
